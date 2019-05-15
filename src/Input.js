@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import './input.css';
 
-const Input = () => {
-    const [input, setInput] = useState("");
+function Input(props) {
     return (
       <div id="input">
         <input 
@@ -9,11 +9,11 @@ const Input = () => {
           type="text"
           maxlength="100"
           placeholder="What dish are you going to cook?" 
-          value={input}
-          onChange={el => setInput(el.target.value)}
+          value={props.input}
+          onChange={el => props.setInput(el.target.value)}
         />
         <div id="suggestions">
-          {input}
+          {props.input}
         </div>
       </div>
     );

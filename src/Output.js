@@ -1,8 +1,11 @@
 import React from 'react';
+import './output.css';
 
-const Output = () => {
+function Output(props) {
     return (
-     <div id ="output" />
+     <div id ="output">
+        {props.input}
+     </div>
     )
  }
 

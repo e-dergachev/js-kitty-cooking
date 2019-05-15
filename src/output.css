@@ -1,0 +1,10 @@
+#output {
+    width: 400px;
+    height: 500px;
+    border: 1px solid;
+    margin: 30px auto;
+    padding: 3px 5px 3px 5px;
+    word-wrap: break-word;
+    overflow-y: auto;
+    font-size: 15px;
+  }

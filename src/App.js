@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from './Input';
 import Output from './Output';
 
-const App = () => {
-
+function App () {
+  const [input, setInput] = useState("");
   return (
     <div>
-      <Input />
-      <Output />
+      <Input input={input} setInput={setInput} />
+      <Output input={input} />
     </div>
   );
 }
