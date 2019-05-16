@@ -7,21 +7,25 @@
     margin: auto;
   }
   
-  #search {
-    align-self: center;
-    width: 95%;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid;
-    outline: none;
-    margin-top: 7px;
-    font-size: 15px;
-  }
+#search {
+  align-self: center;
+  width: 95%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  margin-top: 7px;
+  font-size: 15px;
+}
   
-  #suggestions {
-    flex-grow: 100;
-    padding: 3px 5px 3px 5px;
-    word-wrap: break-word;
-    overflow-y: auto;
-    font-size: 15px;
-  }
+#suggestions {
+  flex-grow: 100;
+  padding: 3px 5px 3px 5px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  font-size: 15px;
+}
+
+p:hover {
+  cursor: pointer;
+}

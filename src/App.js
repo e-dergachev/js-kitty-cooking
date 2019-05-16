@@ -4,10 +4,15 @@ import Output from './Output';
 
 function App () {
   const [input, setInput] = useState("");
+  const [dish, setDish] = useState({});
   return (
     <div>
-      <Input input={input} setInput={setInput} />
-      <Output input={input} />
+      <Input 
+        input={input} 
+        setInput={setInput} 
+        setDish={setDish}
+      />
+      <Output dish={dish} />
     </div>
   );
 }
