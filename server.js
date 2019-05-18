@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
+const sqlite3 = require('sqlite3');
 
 app.use((req, res, next) => { //need it for development cors requests
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
+
+let db = new sqlite3.Database("./db/recipes.sqlite3", err => { 
+  if (err) { 
+      console.log('Error when connecting the database', err) 
+  } else { 
+      console.log('Database connected!') 
+  } 
+})
 
 const database = [   //currently uses a bunch of mock-ups before i add a db
     {
