@@ -12,7 +12,10 @@ function App () {
         setInput={setInput} 
         setDish={setDish}
       />
-      <Output dish={dish} />
+      <Output 
+        dish={dish}
+        setDish={setDish}
+      />
     </div>
   );
 }

@@ -8,3 +8,8 @@
     overflow-y: auto;
     font-size: 15px;
   }
+
+#output-cap {
+  text-align: right;
+  margin: 0 0 0 0;
+}

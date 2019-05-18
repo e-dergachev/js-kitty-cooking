@@ -14,6 +14,7 @@ function Input(props) {
     return dishes.map((dish, i) => 
       <p 
         key={dish._id}
+        class="suggestion"
         style={i%2 === 0 ? {backgroundColor: "#d9d9d9"} : {backgroundColor: "#f2f2f2"}}
         onClick={() => props.setDish(dish)}
       >

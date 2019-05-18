@@ -26,6 +26,6 @@
   font-size: 15px;
 }
 
-p:hover {
+.suggestion {
   cursor: pointer;
 }
