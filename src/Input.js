@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import './input.css';
 
+//let reset = false;
+
 function Input(props) {
 
   const [dishes, setDishes] = useState([]);
 
-  const suggestions = (input) => {
-    if(input.length >= 3) {
-      fetch('http://localhost:3001/api/get-suggestions?input=' + input)
-      .then(response => response.json())
-      .then(result => setDishes(result));
-    }
+  const suggestions = input => {
+    fetch('http://localhost:3001/api/get-suggestions?input=' + input)
+    .then(response => response.json())
+    .then(result => setDishes(result));
     return dishes.map((dish, i) => 
       <p 
         key={dish._id}
-        class="suggestion"
+        className="suggestion"
         style={i%2 === 0 ? {backgroundColor: "#d9d9d9"} : {backgroundColor: "#f2f2f2"}}
         onClick={() => props.setDish(dish)}
       >
