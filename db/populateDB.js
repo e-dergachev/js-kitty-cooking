@@ -15,4 +15,4 @@ db.serialize(() => {
   for (let i = 0; i < dishes.length; i++) {
     db.run("INSERT INTO dishes (dish, tags, category) VALUES (?, ?, ?)", dishes[i]);
   }
-})
+});
