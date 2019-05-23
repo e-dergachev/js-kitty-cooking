@@ -7,20 +7,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faTimes)
 
 function Output(props) {
-   return (
-   <div id ="output">
-      <p id="output-cap">
-         <FontAwesomeIcon 
-            icon={faTimes} 
-            onClick={() => props.setDish({})} 
-            style={{cursor: "pointer"}}
-         />
-      </p>
-      {props.dish.recipe}
-      <br />< br />
-      {props.dish.source}
-   </div>
-   )
+   if (props.dish.name !== undefined) {
+      return (
+      <div id ="output">
+         <div id="output-cap">
+            <span id="category">
+               Category: {props.dish.category}
+            </span>
+            <span id="close" onClick={() => props.setDish({})} >
+               Clear <FontAwesomeIcon 
+                        icon={faTimes} 
+                        style={{transform: "translate(0px, 1px)"}}
+                     />
+            </span>
+         </div>
+         {props.dish.recipe}
+         <br />< br />
+         {props.dish.source}
+      </div>
+      );
+   }
+   else {
+      return (
+         <div id="output">
+            [Placeholder]
+         </div>
+      );
+   }
 }
 
 export default Output;
