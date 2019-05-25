@@ -14,7 +14,7 @@
   height: 33px;
 }
 
-#category {
+#cuisine {
   border-bottom: 2px solid;
   padding: 3px;
   display: inline-block; /*float on #close applies it too*/

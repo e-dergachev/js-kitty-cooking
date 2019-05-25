@@ -11,8 +11,8 @@ function Output(props) {
       return (
       <div id ="output">
          <div id="output-cap">
-            <span id="category">
-               Category: {props.dish.category}
+            <span id="cuisine">
+               Cuisine: {props.dish.cuisine}
             </span>
             <span id="close" onClick={() => props.setDish({})} >
                Clear <FontAwesomeIcon 

@@ -12,10 +12,10 @@ app.use('/public', express.static(process.cwd() + '/public'));
 
 app.get('/', (req, res) => res.sendFile(process.cwd() + '/public/index.html'));
 
-const checkDishes = (keywordToCheck, category) => {
+const checkDishes = (keywordToCheck, cuisine) => {
   let db = new sqlite3.Database('./db/recipes.sqlite3'); 
-  const sqlQuery = category === "all" ? "SELECT * FROM dishes WHERE tags like '%" + keywordToCheck + "%'" : 
-    "SELECT * FROM dishes WHERE category = '" + category + "' AND tags like '%" + keywordToCheck + "%'";
+  const sqlQuery = cuisine === "all" ? "SELECT * FROM dishes WHERE tags like '%" + keywordToCheck + "%'" : 
+    "SELECT * FROM dishes WHERE cuisine = '" + cuisine + "' AND tags like '%" + keywordToCheck + "%'";
   const promisedResult = new Promise((resolve, reject) => {
   db.all(sqlQuery, (err, rows) => {
     if (err) {
@@ -30,7 +30,7 @@ const checkDishes = (keywordToCheck, category) => {
 }
 
 app.get('/api/get-suggestions', async (req, res) => {
-  const category = req.query.category === undefined ? "all" : req.query.category;
+  const cuisine = req.query.cuisine === undefined ? "all" : req.query.cuisine;
   const input = req.query.input.split(" ");
   if (input[0].length < 3) {
     res.send([]);
@@ -41,11 +41,11 @@ app.get('/api/get-suggestions', async (req, res) => {
     if (input[i].length < 3) {
       continue; //to avoid excessive db queries, anyway the tags are 3 letters minimum
     }
-    let result = await checkDishes(input[i], category);
+    let result = await checkDishes(input[i], cuisine);
     result.forEach(row => rows.push(row));
   }
   rows.forEach(row => {
-    let entry = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","category":"' + row.category + '"}';
+    let entry = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
     dishes.push(entry);
   })
   dishes = dishes.filter((v, i, a) => a.indexOf(v) === i).map(dish => JSON.parse(dish));
