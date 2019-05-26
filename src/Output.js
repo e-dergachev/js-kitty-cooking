@@ -28,6 +28,8 @@ function Output(props) {
                Clear <FontAwesomeIcon icon={faTimes} className="decoration" />
             </span>         
          </div>
+         {props.dish.name}
+         <br />< br />
          {props.dish.recipe}
          <br />< br />
          {props.dish.source}
