@@ -17,10 +17,12 @@ function App () {
         input={input} 
         setInput={setInput} 
         setDish={setDish}
+        cuisines={cuisines}
       />
       <Output 
         dish={dish}
         setDish={setDish}
+        cuisines={cuisines}
       />
     </div>
   );

@@ -8,7 +8,18 @@ function Input(props) {
   const [dishes, setDishes] = useState([]);
 
   const suggestions = input => {
-    fetch('http://localhost:3001/api/get-suggestions?input=' + input)
+    let query = 'http://localhost:3001/api/get-suggestions?input=' + input;
+    if (Object.values(props.cuisines).includes(false)) {
+      const selectedCuisines = [];
+      let queryPiece = '&';
+      Object.entries(props.cuisines).filter(el => el[1]).forEach(el => selectedCuisines.push(el[0]));
+      selectedCuisines.forEach((cuisine, i) => {
+          queryPiece += 'cuisine=' + cuisine;
+          if (i !== selectedCuisines.length - 1) {queryPiece += '&'}
+      });
+      query += queryPiece;
+    }
+    fetch(query)
     .then(response => response.json())
     .then(result => setDishes(result));
     return dishes.map((dish, i) => 

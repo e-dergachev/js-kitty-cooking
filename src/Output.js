@@ -9,7 +9,18 @@ library.add(faTimes, faRandom);
 function Output(props) {
 
    const getRandomDish = () => {
-      fetch('http://localhost:3001/api/get-random')
+      let query = 'http://localhost:3001/api/get-random';
+      if (Object.values(props.cuisines).includes(false)) {
+         const selectedCuisines = [];
+         let queryPiece = '?';
+         Object.entries(props.cuisines).filter(el => el[1]).forEach(el => selectedCuisines.push(el[0]));
+         selectedCuisines.forEach((cuisine, i) => {
+             queryPiece += 'cuisine=' + cuisine;
+             if (i !== selectedCuisines.length - 1) {queryPiece += '&'}
+         });
+         query += queryPiece;
+     }
+      fetch(query)
       .then(response => response.json())
       .then(result => props.setDish(result));
    };
