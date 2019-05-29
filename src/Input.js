@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './input.css';
+import colors from './colors.js';
 
 //let reset = false;
 
@@ -23,19 +24,19 @@ function Input(props) {
     .then(response => response.json())
     .then(result => setDishes(result));
     return dishes.map((dish, i) => 
-      <p 
+      <div
         key={dish._id}
         className="suggestion"
-        style={i%2 === 0 ? {backgroundColor: "#d9d9d9"} : {backgroundColor: "#f2f2f2"}}
+        style={{backgroundColor: i%2 === 0 ? colors.scheme1.color2 : colors.scheme1.color4}}
         onClick={() => props.setDish(dish)}
       >
         {dish.name}
-      </p>
+      </div>
     )
   }
 
   return (
-    <div id="input">
+    <div id="input" style={{backgroundColor: colors.scheme1.color2, borderColor: colors.scheme1.color5}}>
       <input 
         id="search"
         type="text"
@@ -43,8 +44,9 @@ function Input(props) {
         placeholder="What dish are you going to cook?" 
         value={props.input}
         onChange={el => props.setInput(el.target.value)}
+        style={{backgroundColor: colors.scheme1.color2, borderColor: colors.scheme1.color5}}
       />
-      <div id="suggestions">
+      <div id="suggestions" style={{backgroundColor: colors.scheme1.color2}}>
         {suggestions(props.input)}
       </div>
     </div>

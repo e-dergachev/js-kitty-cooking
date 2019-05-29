@@ -3,6 +3,7 @@ import './output.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes, faRandom } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import colors from './colors.js';
 
 library.add(faTimes, faRandom);
 
@@ -27,16 +28,16 @@ function Output(props) {
 
    if (props.dish.name !== undefined) {
       return (
-      <div id ="output">
-         <div id="output-cap">
-            <span id="cuisine">
+      <div id ="output" style={{backgroundColor: colors.scheme1.color2, borderColor: colors.scheme1.color5}}>
+         <div id="output-cap" style={{color: colors.scheme1.color8}}>
+            <span id="cuisine" style={{borderColor: colors.scheme1.color5}}>
                Cuisine: {props.dish.cuisine}
             </span>
-            <span className="btn" onClick={() => getRandomDish()} >
-               Random <FontAwesomeIcon icon={faRandom} className="decoration" />
+            <span className="btn" style={{backgroundColor: colors.scheme1.color4, borderColor: colors.scheme1.color5}} onClick={() => getRandomDish()} >
+               Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: colors.scheme1.color5}} />
             </span>               
-            <span className="btn" onClick={() => props.setDish({})} >
-               Clear <FontAwesomeIcon icon={faTimes} className="decoration" />
+            <span className="btn" style={{backgroundColor: colors.scheme1.color4, borderColor: colors.scheme1.color5}} onClick={() => props.setDish({})} >
+               Clear <FontAwesomeIcon icon={faTimes} className="decoration" style={{color: colors.scheme1.color5}} />
             </span>         
          </div>
          {props.dish.name}
@@ -49,10 +50,10 @@ function Output(props) {
    }
    else {
       return (
-         <div id="output">
-            <div id="output-cap">
-               <span className="btn" onClick={() => getRandomDish()} >
-                  Random <FontAwesomeIcon icon={faRandom} className="decoration" />
+         <div id="output" style={{backgroundColor: colors.scheme1.color2, borderColor: colors.scheme1.color5}}>
+            <div id="output-cap" style={{color: colors.scheme1.color8}}>
+               <span className="btn" style={{backgroundColor: colors.scheme1.color4, borderColor: colors.scheme1.color5}} onClick={() => getRandomDish()} >
+                  Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: colors.scheme1.color5}} />
                </span>
             </div>
             [Placeholder]
