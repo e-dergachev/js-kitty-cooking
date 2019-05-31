@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './input.css';
-import colors from './colors.js';
 
 //let reset = false;
 
@@ -27,7 +26,7 @@ function Input(props) {
       <div
         key={dish._id}
         className="suggestion"
-        style={{backgroundColor: i%2 === 0 ? colors.scheme1.color2 : colors.scheme1.color4}}
+        style={{backgroundColor: i%2 === 0 ? props.colors[props.colorScheme].color2 : props.colors[props.colorScheme].color4}}
         onClick={() => props.setDish(dish)}
       >
         {dish.name}
@@ -36,7 +35,7 @@ function Input(props) {
   }
 
   return (
-    <div id="input" style={{backgroundColor: colors.scheme1.color2, borderColor: colors.scheme1.color5}}>
+    <div id="input" style={{backgroundColor: props.colors[props.colorScheme].color2, borderColor: props.colors[props.colorScheme].color5}}>
       <input 
         id="search"
         type="text"
@@ -44,9 +43,9 @@ function Input(props) {
         placeholder="What dish are you going to cook?" 
         value={props.input}
         onChange={el => props.setInput(el.target.value)}
-        style={{backgroundColor: colors.scheme1.color2, borderColor: colors.scheme1.color5}}
+        style={{backgroundColor: props.colors[props.colorScheme].color2, borderColor: props.colors[props.colorScheme].color5}}
       />
-      <div id="suggestions" style={{backgroundColor: colors.scheme1.color2}}>
+      <div id="suggestions" style={{backgroundColor: props.colors[props.colorScheme].color2}}>
         {suggestions(props.input)}
       </div>
     </div>

@@ -41,3 +41,11 @@
 .decoration {
   transform: translate(0px, 1px);
 }
+
+.placeholder {
+  width: 150px;
+  height: 50px;
+  margin: 30px 0 0 30px;
+  border: 1px solid;
+  cursor: pointer;
+}
