@@ -12,7 +12,7 @@ function App () {
 
   useEffect(() => {
     document.body.style.backgroundColor = colors[colorScheme].color1;
-    document.body.style.color = colors[colorScheme].color6;
+    //document.body.style.color = colors[colorScheme].color6; //no need because it doesn't change between the schemes
   });
 
   return (
@@ -20,22 +20,20 @@ function App () {
       <NavBar 
         cuisines={cuisines}
         setCuisines={setCuisines}
-        colors={colors}
-        colorScheme={colorScheme}
+        scheme={colors[colorScheme]}
       />
       <Input 
         input={input} 
         setInput={setInput} 
         setDish={setDish}
         cuisines={cuisines}
-        colors={colors}
-        colorScheme={colorScheme}
+        scheme={colors[colorScheme]}
       />
       <Output 
         dish={dish}
         setDish={setDish}
         cuisines={cuisines}
-        colors={colors}
+        scheme={colors[colorScheme]}
         colorScheme={colorScheme}
         setColorScheme={setColorScheme}
       />

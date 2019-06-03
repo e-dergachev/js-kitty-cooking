@@ -27,16 +27,16 @@ function Output(props) {
 
    if (props.dish.name !== undefined) {
       return (
-      <div id ="output" style={{backgroundColor: props.colors[props.colorScheme].color2, borderColor: props.colors[props.colorScheme].color5}}>
-         <div id="output-cap" style={{color: props.colors[props.colorScheme].color8}}>
-            <span id="cuisine" style={{borderColor: props.colors[props.colorScheme].color5}}>
+      <div id ="output" style={{backgroundColor: props.scheme.color2, borderColor: props.scheme.color5}}>
+         <div id="output-cap" style={{color: props.scheme.color8}}>
+            <span id="cuisine" style={{borderColor: props.scheme.color5}}>
                Cuisine: {props.dish.cuisine}
             </span>
-            <span className="btn" style={{backgroundColor: props.colors[props.colorScheme].color4, borderColor: props.colors[props.colorScheme].color5}} onClick={() => getRandomDish()} >
-               Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: props.colors[props.colorScheme].color5}} />
+            <span className="btn" style={{backgroundColor: props.scheme.color4, borderColor: props.scheme.color5}} onClick={() => getRandomDish()} >
+               Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: props.scheme.color5}} />
             </span>               
-            <span className="btn" style={{backgroundColor: props.colors[props.colorScheme].color4, borderColor: props.colors[props.colorScheme].color5}} onClick={() => props.setDish({})} >
-               Clear <FontAwesomeIcon icon={faTimes} className="decoration" style={{color: props.colors[props.colorScheme].color5}} />
+            <span className="btn" style={{backgroundColor: props.scheme.color4, borderColor: props.scheme.color5}} onClick={() => props.setDish({})} >
+               Clear <FontAwesomeIcon icon={faTimes} className="decoration" style={{color: props.scheme.color5}} />
             </span>         
          </div>
          {props.dish.name}
@@ -49,26 +49,26 @@ function Output(props) {
    }
    else {
       return (
-         <div id="output" style={{backgroundColor: props.colors[props.colorScheme].color2, borderColor: props.colors[props.colorScheme].color5}}>
-            <div id="output-cap" style={{color: props.colors[props.colorScheme].color8}}>
-               <span className="btn" style={{backgroundColor: props.colors[props.colorScheme].color4, borderColor: props.colors[props.colorScheme].color5}} onClick={() => getRandomDish()} >
-                  Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: props.colors[props.colorScheme].color5}} />
+         <div id="output" style={{backgroundColor: props.scheme.color2, borderColor: props.scheme.color5}}>
+            <div id="output-cap" style={{color: props.scheme.color8}}>
+               <span className="btn" style={{backgroundColor: props.scheme.color4, borderColor: props.scheme.color5}} onClick={() => getRandomDish()} >
+                  Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: props.scheme.color5}} />
                </span>
             </div>
             [Placeholder]
             <div 
                className="placeholder" 
-               style={{backgroundColor: "#e6e6fa", borderColor: props.colors[props.colorScheme].color5}} 
+               style={{backgroundColor: "#e6e6fa", borderColor: props.scheme.color5}} 
                onClick={() => props.setColorScheme("lavender")}
             />
             <div 
                className="placeholder" 
-               style={{backgroundColor: "#b3ff99", borderColor: props.colors[props.colorScheme].color5}}
+               style={{backgroundColor: "#b3ff99", borderColor: props.scheme.color5}}
                onClick={() => props.setColorScheme("green")}
             />            
             <div 
                className="placeholder" 
-               style={{backgroundColor: "#efa7c0", borderColor: props.colors[props.colorScheme].color5}} 
+               style={{backgroundColor: "#efa7c0", borderColor: props.scheme.color5}} 
                onClick={() => props.setColorScheme("pink")}
             />
          </div>

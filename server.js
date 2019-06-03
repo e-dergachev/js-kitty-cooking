@@ -9,7 +9,6 @@ app.use((req, res, next) => { //need it for development cors requests
   });
 
 app.use('/public', express.static(process.cwd() + '/public'));
-
 app.get('/', (req, res) => res.sendFile(process.cwd() + '/public/index.html'));
 
 const getCuisinePiece = (cuisines) => {
@@ -86,6 +85,5 @@ app.get('/api/get-random', async (req, res) => {
   let result = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
   res.send(result);
 });
-
 
 app.listen(process.env.PORT || 3001);
