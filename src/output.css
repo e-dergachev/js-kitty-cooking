@@ -42,10 +42,62 @@
   transform: translate(0px, 1px);
 }
 
-.placeholder {
-  width: 150px;
-  height: 50px;
-  margin: 30px 0 0 30px;
+#app-title {
+  text-align: center;
+  font-size: 22px;
+}
+
+#app-subtitle {
+  text-align: center;
+  font-size: 17px;
+  font-weight: normal;
+}
+
+#bottom-box {
+  text-align: center;
+}
+
+#theme-box {
+  display: flex;
+  justify-content: center;
+}
+
+.theme {
   border: 1px solid;
   cursor: pointer;
+  width: 65px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.theme:active {
+  border: 2px solid;
+  transform: translate(0px, -1px);
+  margin-bottom: -1px;
+  margin-right: -1px;
+  margin-left: -1px;
+}
+
+#lavender {
+  background-color: #e6e6fa;
+}
+
+#green {
+  background-color: #b3ff99;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#green:active {
+  margin-right: 9px;
+  margin-left: 9px;
+}
+
+#pink {
+  background-color: #efa7c0; 
+}
+
+.legal {
+  font-size: 12px;
 }

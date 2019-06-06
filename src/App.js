@@ -12,7 +12,6 @@ function App () {
 
   useEffect(() => {
     document.body.style.backgroundColor = colors[colorScheme].color1;
-    //document.body.style.color = colors[colorScheme].color6; //no need because it doesn't change between the schemes
   });
 
   return (

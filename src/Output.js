@@ -1,5 +1,6 @@
 import React from 'react';
 import './output.css';
+import './kitty.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes, faRandom } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,22 +56,55 @@ function Output(props) {
                   Random <FontAwesomeIcon icon={faRandom} className="decoration" style={{color: props.scheme.color5}} />
                </span>
             </div>
-            [Placeholder]
-            <div 
-               className="placeholder" 
-               style={{backgroundColor: "#e6e6fa", borderColor: props.scheme.color5}} 
-               onClick={() => props.setColorScheme("lavender")}
-            />
-            <div 
-               className="placeholder" 
-               style={{backgroundColor: "#b3ff99", borderColor: props.scheme.color5}}
-               onClick={() => props.setColorScheme("green")}
-            />            
-            <div 
-               className="placeholder" 
-               style={{backgroundColor: "#efa7c0", borderColor: props.scheme.color5}} 
-               onClick={() => props.setColorScheme("pink")}
-            />
+            <h1 id="app-title">JS Kitty Cooking</h1>
+            <h2 id="app-subtitle">Ancient recipes from the old cookbooks</h2>
+            <div id="kitty">
+               <div id="left-left-ear" className="kitty-pieces" />
+               <div id="left-right-ear" className="kitty-pieces" />
+               <div id="forehead" className="kitty-pieces" />
+               <div id="right-left-ear" className="kitty-pieces" />
+               <div id="right-right-ear" className="kitty-pieces" />
+               <div id="upper-left-whisker" className="kitty-pieces" />
+               <div id="lower-left-whisker" className="kitty-pieces" />
+               <div id="upper-right-whisker" className="kitty-pieces" />
+               <div id="lower-right-whisker" className="kitty-pieces" />
+               <div id="left-lip-outer-circle" className="circles" />
+               <div id="left-lip-inner-circle" className="circles" style={{backgroundColor: props.scheme.color2}} />
+               <div id="right-lip-outer-circle" className="circles" />
+               <div id="right-lip-inner-circle" className="circles" style={{backgroundColor: props.scheme.color2}} />
+               <div id="left-outer-eye" className="triangles" />
+               <div id="left-inner-eye" className="triangles" style={{backgroundColor: props.scheme.color2}} />
+               <div id="right-outer-eye" className="triangles" />
+               <div id="right-inner-eye" className="triangles" style={{backgroundColor: props.scheme.color2}} />
+               <div id="cover" style={{backgroundColor: props.scheme.color2}} />
+               <div id="left-lower-lid" className="kitty-pieces" />
+               <div id="left-upper-lid" className="kitty-pieces" style={{backgroundColor: props.scheme.color2}} />
+               <div id="right-lower-lid" className="kitty-pieces" />
+               <div id="right-upper-lid" className="kitty-pieces" style={{backgroundColor: props.scheme.color2}} />
+            </div>
+            <div id="bottom-box">
+            Choose a color scheme:
+               <div id="theme-box">
+                  <div id="lavender" 
+                     className="theme" 
+                     style={{borderColor: props.scheme.color5}} 
+                     onClick={() => props.setColorScheme("lavender")} 
+                  />
+                  <div id="green" 
+                     className="theme" 
+                     style={{borderColor: props.scheme.color5}}
+                     onClick={() => props.setColorScheme("green")}
+                  />
+                  <div id="pink" 
+                     className="theme" 
+                     style={{borderColor: props.scheme.color5}}
+                     onClick={() => props.setColorScheme("pink")}
+                  />
+               </div>
+               <span className="legal">All the  recipes are taken from the free public domain books on</span> 
+               <br />
+               <span className="legal">Project Gutenberg (gutenberg.org)</span>
+            </div>
          </div>
       );
    }
