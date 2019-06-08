@@ -1,12 +1,16 @@
 #input {
-    display:flex;
-    flex-direction: column;
-    width: 380px;
-    height: 150px;
-    border: 1px solid;
-    margin: 30px auto;
+  display:flex;
+  flex-direction: column;
+  width: 380px;
+  height: 150px;
+  border: 1px solid;
+  margin: 30px auto;
+}
+@media (max-width: 499px) {
+  #input {
+    width: 280px;
   }
-  
+}    
 #search {
   align-self: center;
   width: 95%;

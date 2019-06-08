@@ -1,14 +1,18 @@
 #output {
-    width: 400px;
-    height: 500px;
-    border: 1px solid;
-    margin: 30px auto;
-    padding: 5px 5px 3px 5px;
-    word-wrap: break-word;
-    overflow-y: auto;
-    font-size: 15px;
+  width: 400px;
+  height: 500px;
+  border: 1px solid;
+  margin: 30px auto;
+  padding: 5px 5px 3px 5px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  font-size: 15px;
+}
+@media (max-width: 499px) {
+  #output {
+    width: 290px;
   }
-
+}
 #output-cap {
   width: 100%;
   height: 33px;

@@ -57,7 +57,7 @@ function Output(props) {
                </span>
             </div>
             <h1 id="app-title">JS Kitty Cooking</h1>
-            <h2 id="app-subtitle">Ancient recipes from the old cookbooks</h2>
+            <h2 id="app-subtitle">Old recipes from ancient cookbooks</h2>
             <div id="kitty">
                <div id="left-left-ear" className="kitty-pieces" />
                <div id="left-right-ear" className="kitty-pieces" />
@@ -101,9 +101,9 @@ function Output(props) {
                      onClick={() => props.setColorScheme("pink")}
                   />
                </div>
-               <span className="legal">All the  recipes are taken from the free public domain books on</span> 
+               <span className="legal">All the recipes are taken from the free public domain books</span> 
                <br />
-               <span className="legal">Project Gutenberg (gutenberg.org)</span>
+               <span className="legal">from Project Gutenberg (gutenberg.org)</span>
             </div>
          </div>
       );
