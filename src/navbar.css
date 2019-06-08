@@ -42,10 +42,11 @@
   display: flex;
   align-items: center;
   user-select: none;
-  font-size: 17px;  
+  font-size: 110%;  
 }
 @media (max-width: 499px) {
   .msg {
     width: 284px;
+    font-size: 100%; 
   }
 }

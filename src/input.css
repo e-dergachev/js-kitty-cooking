@@ -5,12 +5,7 @@
   height: 150px;
   border: 1px solid;
   margin: 30px auto;
-}
-@media (max-width: 499px) {
-  #input {
-    width: 280px;
-  }
-}    
+}  
 #search {
   align-self: center;
   width: 95%;
@@ -19,14 +14,13 @@
   border-bottom: 2px solid;
   outline: none;
   margin-top: 7px;
-  font-size: 15px;
+  font-size: 100%;
 }
   
 #suggestions {
   flex-grow: 100;
   word-wrap: break-word;
   overflow-y: auto;
-  font-size: 15px;
 }
 
 .suggestion {
@@ -37,3 +31,8 @@
   padding: 0 5px 0 5px;  
   cursor: pointer;
 }
+@media (max-width: 499px) {
+  #input {
+    width: 280px;
+  }
+}  

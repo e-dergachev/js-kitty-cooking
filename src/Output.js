@@ -101,9 +101,7 @@ function Output(props) {
                      onClick={() => props.setColorScheme("pink")}
                   />
                </div>
-               <span className="legal">All the recipes are taken from the free public domain books</span> 
-               <br />
-               <span className="legal">from Project Gutenberg (gutenberg.org)</span>
+               <span id="legal">All the recipes are taken from the public domain books on Guttenberg.com</span>
             </div>
          </div>
       );
