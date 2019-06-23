@@ -58,7 +58,7 @@ const getRandomDish = (cuisines) => {
 app.get('/api/get-suggestions', async (req, res) => {
   const cuisines = req.query.cuisine === undefined ? "all" : req.query.cuisine;
   const input = req.query.input.split(" ");
-  if (input[0].length < 3) {
+  if (input.every(el => el.length < 3)) {
     res.send([]);
     return;
   }
