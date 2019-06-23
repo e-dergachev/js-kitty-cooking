@@ -42,13 +42,16 @@
 
 #app-title {
   text-align: center;
-  font-size: 150%;
+  font-size: 200%;
+  font-family: 'Indie Flower', cursive;
+  margin-top: 0;
 }
 
 #app-subtitle {
   text-align: center;
   font-size: 110%;
   font-weight: normal;
+  margin-top: -15px;
 }
 #bottom-box {
   text-align: center;

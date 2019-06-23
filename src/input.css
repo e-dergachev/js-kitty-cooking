@@ -31,6 +31,11 @@
   padding: 0 5px 0 5px;  
   cursor: pointer;
 }
+
+input:-webkit-autofill {
+  transition-delay: 1000000s; /* Some magic to stop yellow background on autofill */
+}
+
 @media (max-width: 499px) {
   #input {
     width: 280px;

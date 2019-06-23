@@ -41,9 +41,9 @@ function Output(props) {
             </span>         
          </div>
          {props.dish.name}
-         <br />< br />
+         <br />-------------------------------------< br />
          {props.dish.recipe}
-         <br />< br />
+         <br />-------------------------------------< br />
          {props.dish.source}
       </div>
       );

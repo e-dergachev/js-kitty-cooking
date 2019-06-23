@@ -13,7 +13,7 @@ const colors = {   //colorSchemes
         color1: '#b3ff99', //hsl(105, 100%, 80%)
         color2: '#dff8d5', //hsl(103, 71%, 90%)
         color3: '#9abe8c', //hsl(103, 28%, 65%)
-        color4: '#abfe8f', //hsl(105, 99%, 78%)
+        color4: '#a4fe85', //hsl(105, 99%, 76%)
         color5: '#5d4300', //hsl(43, 100%, 18%) the same for all schemes
         color6: '#291e00', //hsl(44, 100%, 8%) the same for all schemes
         color7: '#332500', //hsl(44, 100%, 10%) the same for all schemes
@@ -23,7 +23,7 @@ const colors = {   //colorSchemes
         color1: '#efa7c0', //hsl(339, 69%, 80%)
         color2: '#ffe3f4', //hsl(324, 100%, 95%)
         color3: '#b6728b', //hsl(338, 32%, 58%)
-        color4: '#eda1bb', //hsl(339, 68%, 78%)
+        color4: '#eb98b5', //hsl(339, 68%, 76%)
         color5: '#5d4300', //hsl(43, 100%, 18%) the same for all schemes
         color6: '#291e00', //hsl(44, 100%, 8%) the same for all schemes
         color7: '#332500', //hsl(44, 100%, 10%) the same for all schemes
