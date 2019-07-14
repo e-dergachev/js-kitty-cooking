@@ -29,7 +29,7 @@ function Output(props) {
    if (props.dish.name !== undefined) {
       return (
       <div id ="output" style={{backgroundColor: props.scheme.color2, borderColor: props.scheme.color5}}>
-         <div id="output-cap" style={{color: props.scheme.color8}}>
+         <div id="output-cap" style={{color: props.scheme.color8, marginBottom: "12px"}}>
             <span id="cuisine" style={{borderColor: props.scheme.color5}}>
                Cuisine: {props.dish.cuisine}
             </span>
@@ -40,7 +40,7 @@ function Output(props) {
                Clear <FontAwesomeIcon icon={faTimes} className="decoration" style={{color: props.scheme.color5}} />
             </span>         
          </div>
-         {props.dish.name}
+         <span id="dish-title">{props.dish.name}</span>
          <br />-------------------------------------< br />
          {props.dish.recipe}
          <br />-------------------------------------< br />

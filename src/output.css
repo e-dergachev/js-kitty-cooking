@@ -40,6 +40,10 @@
   transform: translate(0px, 1px);
 }
 
+#dish-title {
+  font-size: 110%;
+}
+
 #app-title {
   text-align: center;
   font-size: 200%;
