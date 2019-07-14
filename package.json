@@ -32,6 +32,7 @@
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "puppeteer": "^1.18.1",
     "react-test-renderer": "^16.8.6"
   }
 }
