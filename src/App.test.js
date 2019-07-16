@@ -82,16 +82,52 @@ describe('Unit Tests', () => {
 
 });
 
-describe('End-to-End Tests', () => { //it gives some warnings but passes
+describe('End-to-End Tests', () => { //it gives some warnings but passes, no beforeAll because it glitches
 
-  it("should be titled 'JS Kitty Cooking'", async () => {
-      const browser = await puppeteer.launch({headless: false});
-      const page = await browser.newPage();
-      await page.goto("http://localhost:3000");
-      await page.waitForSelector("#app-title");
-      const html = await page.$eval("#app-title", e => e.innerHTML);
-      expect(html).toBe("JS Kitty Cooking");
-      browser.close();
-  }, 300000);
+  test("loading, looking for dishes, 'random' and 'clear' buttons, switching the theme", async () => {
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
+    await page.goto("http://localhost:3000");
+    
+    await page.waitForSelector("#app-title");
+    const title = await page.$eval("#app-title", element => element.innerHTML);
+    expect(title).toBe("JS Kitty Cooking"); //the page has loaded
+    
+    await page.waitForSelector("#search");
+    await page.type('[id="search"]', "oys");
+    await page.waitForSelector(".suggestion");
+    const suggestion = await page.evaluate(() => {
+      const element = document.getElementsByClassName('suggestion')[0];
+      element.click(); //to get a recipe loaded
+      return element.textContent; //to check how suggestions have loaded
+    });
+    expect(suggestion).toBe("Mock Oysters Of Green Corn"); //suggestions have loaded (the exact string works for the current db)
+    await page.waitForSelector("#dish-title");
+    const dish_name = await page.$eval("#dish-title", element => element.innerHTML);
+    expect(dish_name).toBe("Mock Oysters Of Green Corn"); //the dish recipe has loaded on click too
+   
+    await page.waitForSelector(".btn");
+    await page.evaluate(() => {
+      const element = document.getElementsByClassName('btn')[1];
+      element.click();
+    });
+    await page.waitForSelector("#app-title");
+    const title_again = await page.$eval("#app-title", element => element.innerHTML);
+    expect(title_again).toBe("JS Kitty Cooking"); //the dish recipe was cleared with the "clear" button and we got the welcome screen again
+    
+    await page.waitForSelector("#green");
+    await page.$eval("#green", element => element.click());
+    await page.waitForSelector("#output");
+    const backgroundColor = await page.$eval("#output", e => window.getComputedStyle(e).backgroundColor);
+    expect(backgroundColor).toBe("rgb(223, 248, 213)"); //switched the theme to green
+    
+    await page.waitForSelector(".btn");
+    await page.$eval(".btn", element => element.click());
+    await page.waitForSelector("#dish-title");
+    const dish_name_again = await page.$eval("#dish-title", e => e.innerHTML);
+    expect(typeof dish_name_again).toBe("string"); //got a random recipe pressing the "random" button
+    
+    browser.close();
+  }, 60000);
 
 });
