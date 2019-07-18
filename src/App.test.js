@@ -94,17 +94,17 @@ describe('End-to-End Tests', () => { //it gives some warnings but passes, no bef
     expect(title).toBe("JS Kitty Cooking"); //the page has loaded
     
     await page.waitForSelector("#search");
-    await page.type('[id="search"]', "oys");
+    await page.type('[id="search"]', "egg");
     await page.waitForSelector(".suggestion");
     const suggestion = await page.evaluate(() => {
       const element = document.getElementsByClassName('suggestion')[0];
       element.click(); //to get a recipe loaded
       return element.textContent; //to check how suggestions have loaded
     });
-    expect(suggestion).toBe("Mock Oysters Of Green Corn"); //suggestions have loaded (the exact string works for the current db)
+    expect(typeof suggestion).toBe("string"); //suggestions have loaded (testing for an exact string would work for the current db, but this way it works for any db that has a dish with egg* tag)
     await page.waitForSelector("#dish-title");
     const dish_name = await page.$eval("#dish-title", element => element.innerHTML);
-    expect(dish_name).toBe("Mock Oysters Of Green Corn"); //the dish recipe has loaded on click too
+    expect(dish_name).toEqual(suggestion); //the dish recipe has loaded on click too
    
     await page.waitForSelector(".btn");
     await page.evaluate(() => {
