@@ -1,9 +1,9 @@
 const colors = {   //colorSchemes
     lavender: {
         color1: '#e6e6fa', //hsl(240, 67%, 94%) main background
-        color2: '#edeeff', //hsl(237, 100%, 96%) input/output, even suggestions backgrounds
+        color2: '#edeeff', //hsl(237, 100%, 96%) input/output, odd suggestions backgrounds
         color3: '#aeafc2', //hsl(237, 14%, 72%) folded navbar, selected cuisines backgrounds
-        color4: '#ddddf8', //hsl(240, 66%, 92%) buttons, unfolded navbar, unselected cuisines, odd suggestions backgrounds
+        color4: '#ddddf8', //hsl(240, 66%, 92%) buttons, unfolded navbar, unselected cuisines, even suggestions backgrounds
         color5: '#5d4300', //hsl(43, 100%, 18%) all borders, font-awesome
         color6: '#291e00', //hsl(44, 100%, 8%) main font
         color7: '#332500', //hsl(44, 100%, 10%) folded/unfolded navbar & cuisines fonts
