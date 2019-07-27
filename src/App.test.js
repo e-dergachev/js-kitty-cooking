@@ -43,7 +43,7 @@ describe('Unit Tests', () => {
   it("makes navbar unfold and fold properly", () => {
     const wrapper = shallow(<NavBar setCuisines={() => {}} cuisines={cuisines} scheme={colors["lavender"]} />);
     wrapper.find("#nav-bar").simulate("click");
-    const instruction_1 = <div className="msg instruction-unfolded-msg">Click cuisines to select/unselect them, click the bar again to close it.</div>;
+    const instruction_1 = <div className="msg instruction-unfolded-msg">Click cuisines to select/unselect them, click the bar again to close it</div>;
     expect(wrapper.contains(instruction_1)).toEqual(true);
     const e = { stopPropagation: jest.fn() };
     wrapper.find(".cuisine-msg").at(0).props().onClick(e); 
@@ -128,6 +128,6 @@ describe('End-to-End Tests', () => { //it gives some warnings but passes, no bef
     expect(typeof dish_name_again).toBe("string"); //got a random recipe pressing the "random" button
     
     browser.close();
-  }, 60000);
+  }, 300000);
 
 });

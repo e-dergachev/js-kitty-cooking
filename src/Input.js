@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './input.css';
 
-//let reset = false;
-
 function Input(props) {
 
+  const [input, setInput] = useState("");
   const [dishes, setDishes] = useState([]);
 
   const suggestions = input => {
@@ -41,12 +40,12 @@ function Input(props) {
         type="text"
         maxLength="100"
         placeholder="What dish are you going to cook?" 
-        value={props.input}
-        onChange={el => props.setInput(el.target.value)}
+        value={input}
+        onChange={el => setInput(el.target.value)}
         style={{backgroundColor: props.scheme.color2, borderColor: props.scheme.color5}}
       />
       <div id="suggestions" style={{backgroundColor: props.scheme.color2}}>
-        {suggestions(props.input)}
+        {suggestions(input)}
       </div>
     </div>
   );

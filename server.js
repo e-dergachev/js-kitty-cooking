@@ -56,34 +56,44 @@ const getRandomDish = (cuisines) => {
 };
 
 app.get('/api/get-suggestions', async (req, res) => {
-  const cuisines = req.query.cuisine === undefined ? "all" : req.query.cuisine;
-  const input = req.query.input.split(" ");
-  if (input.every(el => el.length < 3)) {
-    res.send([]);
-    return;
-  }
-  let rows = [], dishes = [];
-  for (let i = 0; i < input.length; i++) {
-    if (input[i].length < 3) {
-      continue; //to avoid excessive db queries, anyway the tags are 3 letters minimum
+  try {
+    const cuisines = req.query.cuisine === undefined ? "all" : req.query.cuisine;
+    const input = req.query.input.split(" ");
+    if (input.every(el => el.length < 3)) {
+      res.send([]);
+      return;
     }
-    let result = await checkDishes(input[i], cuisines);
-    result.forEach(row => rows.push(row));
+    let rows = [], dishes = [];
+    for (let i = 0; i < input.length; i++) {
+      if (input[i].length < 3) {
+        continue; //to avoid excessive db queries, anyway the tags are 3 letters minimum
+      }
+      let result = await checkDishes(input[i], cuisines);
+      result.forEach(row => rows.push(row));
+    }
+    rows.forEach(row => {
+      let entry = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
+      dishes.push(entry);
+    });
+    dishes = dishes.filter((v, i, a) => a.indexOf(v) === i).map(dish => JSON.parse(dish));
+    res.send(dishes)
   }
-  rows.forEach(row => {
-    let entry = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
-    dishes.push(entry);
-  });
-  dishes = dishes.filter((v, i, a) => a.indexOf(v) === i).map(dish => JSON.parse(dish));
-  res.send(dishes)
+  catch(error) {
+    console.log(error);
+  }
 });
 
 app.get('/api/get-random', async (req, res) => {
-  const cuisines = req.query.cuisine === undefined ? "all" : req.query.cuisine;
-  let row = await getRandomDish(cuisines);
-  row = row[0];
-  let result = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
-  res.send(result);
+  try {
+    const cuisines = req.query.cuisine === undefined ? "all" : req.query.cuisine;
+    let row = await getRandomDish(cuisines);
+    row = row[0];
+    let result = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
+    res.send(result);
+  }
+  catch(error) {
+    console.log(error);
+  }
 });
 
 app.listen(process.env.PORT || 3001);

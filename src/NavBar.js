@@ -25,7 +25,7 @@ function NavBar(props) {
     else {
       return (
         <div id="nav-bar-unfolded" style={{backgroundColor: props.scheme.color4, borderColor: props.scheme.color5, color: props.scheme.color7}} onClick={() => setNavFolded(true)}>
-          <div className="msg instruction-unfolded-msg">Click cuisines to select/unselect them, click the bar again to close it.</div>
+          <div className="msg instruction-unfolded-msg">Click cuisines to select/unselect them, click the bar again to close it</div>
           <div className="msg cuisine-msg"
             style={msgStyle("General")}
             onClick={(e) => msgOnclick(e, "General")}
