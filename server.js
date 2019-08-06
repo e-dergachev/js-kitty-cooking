@@ -11,7 +11,7 @@ app.use((req, res, next) => { //need it for development cors requests
 app.use('/public', express.static(process.cwd() + '/public'));
 app.get('/', (req, res) => res.sendFile(process.cwd() + '/public/index.html'));
 
-const getCuisinePiece = (cuisines) => {
+const getCuisinePiece = (cuisines) => { //unselecting everything is equal selecting everything
   let cuisinePiece = "";
   if (Array.isArray(cuisines)) {
     cuisines.forEach((cuisine, i) => {
