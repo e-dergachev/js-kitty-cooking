@@ -21,7 +21,7 @@ function Output(props) {
          });
          query += queryPiece;
      }
-      fetch(query)
+      fetch(query, {accept: "application/json"})
       .then(response => response.json())
       .then(result => props.setDish(result));
    };

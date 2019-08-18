@@ -18,7 +18,7 @@ function Input(props) {
       });
       query += queryPiece;
     }
-    fetch(query)
+    fetch(query, {accept: "application/json"})
     .then(response => response.json())
     .then(result => setDishes(result));
     return dishes.map((dish, i) => 
