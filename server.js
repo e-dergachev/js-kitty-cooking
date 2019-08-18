@@ -4,19 +4,8 @@ const sqlite3 = require('sqlite3').verbose();
 const dotenv = require('dotenv');
 dotenv.config();
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(process.cwd() + '/build'));
-  app.get('/', (req, res) => res.sendFile(process.cwd() + '/build/index.html'));
-}
-else {
-  app.use((req, res, next) => { //need it for development cors requests
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-  app.use('/public', express.static(process.cwd() + '/public'));
-  app.get('/', (req, res) => res.sendFile(process.cwd() + '/public/index.html'));
-}
+app.use(express.static(process.cwd() + '/build'));
+app.get('/', (req, res) => res.sendFile(process.cwd() + '/build/index.html'));
 
 const getCuisinePiece = (cuisines) => { //unselecting everything is equal to selecting everything
   let cuisinePiece = "";
