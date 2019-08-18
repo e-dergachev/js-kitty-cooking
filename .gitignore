@@ -10,7 +10,6 @@
 
 # dev stuff
 /public
-/src
 
 # misc
 .DS_Store
