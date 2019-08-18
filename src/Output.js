@@ -10,7 +10,7 @@ library.add(faTimes, faRandom);
 function Output(props) {
 
    const getRandomDish = () => {
-      let query = 'http://localhost:3001/api/get-random';
+      let query = '/api/get-random';
       if (Object.values(props.cuisines).includes(false)) {
          const selectedCuisines = [];
          let queryPiece = '?';

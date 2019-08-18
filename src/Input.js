@@ -7,7 +7,7 @@ function Input(props) {
   const [dishes, setDishes] = useState([]);
 
   const suggestions = input => {
-    let query = 'http://localhost:3001/api/get-suggestions?input=' + input;
+    let query = '/api/get-suggestions?input=' + input;
     if (Object.values(props.cuisines).includes(false)) {
       const selectedCuisines = [];
       let queryPiece = '&';
