@@ -1,5 +1,7 @@
 An interactive cookbook app, written with React, sqlite and Node.js, it also has a piece of simple CSS art. Its React part is written in the functional style, with hooks and without using classes. 
 
+It currently runs on https://js-kitty-cooking.herokuapp.com
+
 The database itself and the entries that are used to populate it aren't included into this repository. To use populateDB.js script the entries should follow the following pattern:
 
     [{

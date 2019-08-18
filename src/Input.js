@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './input.css';
 
 function Input(props) {
@@ -18,9 +18,11 @@ function Input(props) {
       });
       query += queryPiece;
     }
-    fetch(query, {accept: "application/json"})
-    .then(response => response.json())
-    .then(result => setDishes(result));
+    useEffect(() => {
+      fetch(query)
+      .then(response => response.json())
+      .then(result => setDishes(result));
+    }, [input, props.cuisines]); //launches fetch on input and cuisines change
     return dishes.map((dish, i) => 
       <div
         key={dish._id}
