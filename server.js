@@ -22,6 +22,17 @@ const getCuisinePiece = (cuisines) => { //unselecting everything is equal to sel
   return cuisinePiece;
 };
 
+const getTagPiece = (input) => {
+  const filtered = input.filter(el => el.length >= 3);
+  let tagPiece = '';
+  filtered.forEach((tag, i) => {
+    tagPiece += 'tags like "%' + tag + '%"';
+      if (i !== filtered.length - 1) {tagPiece += ' AND '} //currently it is set to look for the combination of tags, not for any tag
+    });
+  tagPiece = '(' + tagPiece + ')';
+  return tagPiece;
+}
+
 const getPromisedResult = (sqlQuery) => {
   const db = new sqlite3.Database('./db/recipes.sqlite3'); 
   const promisedResult = new Promise((resolve, reject) => {
@@ -37,10 +48,11 @@ const getPromisedResult = (sqlQuery) => {
   return promisedResult;
 }
 
-const checkDishes = (keywordToCheck, cuisines) => {
+const checkDishes = (input, cuisines) => {
   const cuisinePiece = getCuisinePiece(cuisines);
-  const sqlQuery = cuisines === "all" ? "SELECT * FROM dishes WHERE tags like '%" + keywordToCheck + "%'" : 
-    "SELECT * FROM dishes WHERE " + cuisinePiece + " AND tags like '%" + keywordToCheck + "%'";
+  const tagPiece = getTagPiece(input);
+  const sqlQuery = cuisines === "all" ? "SELECT * FROM dishes WHERE" + tagPiece : 
+    "SELECT * FROM dishes WHERE " + cuisinePiece + " AND tags like '%" + tagPiece;
   return getPromisedResult(sqlQuery);
 };
 
@@ -60,13 +72,8 @@ app.get('/api/get-suggestions', async (req, res) => {
       return;
     }
     let rows = [], dishes = [];
-    for (let i = 0; i < input.length; i++) {
-      if (input[i].length < 3) {
-        continue; //to avoid excessive db queries, anyway the tags are 3 letters minimum
-      }
-      let result = await checkDishes(input[i], cuisines);
-      result.forEach(row => rows.push(row));
-    }
+    let result = await checkDishes(input, cuisines);
+    result.forEach(row => rows.push(row));
     rows.forEach(row => {
       let entry = row.dish.substr(0, row.dish.length - 1) + ',"_id":"' + row.id + '","cuisine":"' + row.cuisine + '"}';
       dishes.push(entry);
